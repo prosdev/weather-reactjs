@@ -19,10 +19,24 @@ export default class SearchBar extends Component {
         this.state = {term : ''}
         this.onInputChange = this.onInputChange.bind(this);
     }
-
+    /**
+     * onInputChange method. Keeps track of user input in the SearchBar.
+     *
+     * @event onInputChange
+     * @return {undefined}
+     */
     onInputChange(event) {
-        console.log(event.target.value);
         this.setState({term: event.target.value});
+    }
+    /**
+     * onFormSubmit method. Handler for SearchBar submission.
+     *
+     * @event onFormSubmit
+     * @return {undefined}
+     */
+    onFormSubmit(event) {
+        event.preventDefault();
+        //Need to fetch weather data.
     }
 
     /**
@@ -33,7 +47,7 @@ export default class SearchBar extends Component {
      */
     render() {
         return(
-            <form className="input-group">
+            <form onSubmit={this.onFormSubmit} className="input-group">
                 <input
                     placeholder="Get a five day forecast in your favorite cities!"
                     className="form-control"

@@ -44,7 +44,6 @@ class SearchBar extends Component {
         this.props.fetchWeather(this.state.term);
         this.setState({term: ''});
     }
-
     /**
      * Render method. Renders the layout of the SearchBar component.
      *
@@ -69,7 +68,13 @@ class SearchBar extends Component {
         )
     }
 }
-
+/**
+ * matchDispatchToProps method that returns a bound action creator to the props.
+ * Calling this.props.fetchWeather will fetch the 5 days forecast for the appropriate city queried.
+ *
+ * @event matchDispatchToProps
+ * @return {fetchWeather}
+ */
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
         fetchWeather: fetchWeather
